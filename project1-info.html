@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1차 프로젝트 상세페이지</title>
+
+    <link href="https://websseu.github.io/fontkor/fonts/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
+    <link rel="stylesheet" href="project2-info.css">
+</head>
+<body>
+    <main id="parallax__cont">
+        <section id="section1" class="parallax__item">
+            
+        </section>
+        <!-- //section1 -->
+
+        <section id="section2" class="parallax__item">
+          
+        </section>
+        <!-- //section2 -->
+
+        <section id="section3" class="parallax__item">
+                   
+        </section>
+        <!-- //section3 -->
+
+        <section id="section4" class="parallax__item">
+            
+        </section>
+        <!-- //section4 -->
+
+        <section id="section5" class="parallax__item">
+            
+        </section>
+        <!-- //section5 -->
+
+        <section id="section6" class="parallax__item">
+            
+        </section>
+        <!-- //section6 -->
+
+        <section id="section7" class="parallax__item">
+
+        </section>
+        <!-- //section7 -->
+
+        <section id="section8" class="parallax__item">
+          
+        </section>
+        <!-- //section8 -->
+
+        <section id="section9" class="parallax__item">
+            <div class="mokup"><img src="img/3차목업.png" alt="3차프로젝트 목업 이미지"></div>
+        </section>
+        <!-- //section9 -->
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
+    <script>
+
+        // 스냅 고정 효과 만들기
+        let panels = gsap.utils.toArray(".parallax__item");
+        let tops = panels.map(panel => ScrollTrigger.create({trigger: panel, start: "top top"}));
+
+        panels.forEach((panel, i) => {
+            ScrollTrigger.create({
+                trigger: panel,
+                start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
+                pin: true, 
+                pinSpacing: false 
+            });
+        });
+
+        ScrollTrigger.create({
+            snap: {
+                snapTo: (progress, self) => {
+                    let panelStarts = tops.map(st => st.start), 
+                    snapScroll = gsap.utils.snap(panelStarts, self.scroll()); 
+                    return gsap.utils.normalize(0, ScrollTrigger.maxScroll(window), snapScroll); 
+                },
+                duration: 0.5
+            }
+        });
+
+        // 나타내기 효과
+        const hide = (item) => {
+            gsap.set(item, {autoAlpha: 0});
+        }
+
+        const animate = (item) => {
+            let x = 0;
+            let y = 0;
+            let delay = item.dataset.delay;
+
+            if(item.classList.contains("reveal_LTR")){
+                x = -100,
+                y = 0
+            } else if(item.classList.contains("reveal_BTT")){
+                x = 0,
+                y = 100
+            } else if(item.classList.contains("reveal_TTB")){
+                x = 0,
+                y = -100
+            } else {
+                x = 100,
+                y = 0;
+            }
+
+            gsap.fromTo(item, 
+                {autoAlpha: 0, x: x, y: y}, 
+                {autoAlpha: 1, x: 0, y: 0, delay: delay, duration: 1.25, overwrite: "auto", ease: "expo"}
+            );
+        };
+
+        gsap.utils.toArray(".reveal").forEach(item => {
+            hide(item);
+
+            ScrollTrigger.create({
+                trigger: item,
+                start: "top bottom",
+                end: "bottom top",
+                markers: false,
+                onEnter: () => {animate(item)}
+            });
+        });
+    </script>
+</body>
+</html>
