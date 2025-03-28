@@ -1,0 +1,122 @@
+@keyframes blink{
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}
+    .blinking{
+        animation:blink 1.2s infinite;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+}
+body {
+    color: #fff;
+    font-family: "NexonLv1Gothic";
+    font-weight: 300;
+    background-color: #000000;
+}
+
+/* parallax__cont */
+#parallax__cont {
+    overflow: hidden;
+}
+.parallax__item {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#section1,
+#section2,
+#section3, 
+#section4,
+#section5, 
+#section6,
+#section7, 
+#section8,
+#section9{
+    background-color: #000000;
+}
+
+
+/* section1 */
+#section1{position: relative;}
+.second-overview-text{
+    position: absolute;
+    top: 300px;
+    right: 375px;
+}
+
+/* section2 */
+#section2{position: relative;}
+.second-trend{
+    position: absolute;
+    left: 250px;
+    bottom: 0;
+}
+.ott-uesr{
+    position: absolute;
+    top: 135px;
+    right: 320px;
+}
+.move-ott{
+    position: absolute;
+    top: 383px;
+    right: 320px;
+}
+
+/* section3 */
+#section3{position: relative;}
+.second-needs{
+    position: absolute;
+    top: 0;
+}
+.pinkRectangle{
+    position: absolute;
+    right: 337px;
+    bottom: 218px;
+}
+
+/* section4 */
+#section4{position: relative;}
+
+/* section5 */
+#section5{position: relative;}
+.brend-story{margin-left: 293px;}
+.brend-story>img{width: 80%;}
+
+/* section6 */
+#section6{position: relative;}
+.arrow1{
+    position: absolute;
+    bottom: 443px;
+    left: 872px;
+}
+.arrow2{
+    position: absolute;
+    bottom: 354px;
+    left: 857px;
+}
+.arrow3{
+    position: absolute;
+    bottom: 262px;
+    left: 884px;
+}
+
+/* section7 */
+#section7{position: relative;}
+
+/* section8 */
+#section8{position: relative;}
+
+/* section9 */
+#section9{position: relative;}

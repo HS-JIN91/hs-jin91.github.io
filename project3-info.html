@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3차 프로젝트 상세페이지</title>
+
+    <link href="https://websseu.github.io/fontkor/fonts/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
+    <link rel="stylesheet" href="project3-info.css">
+</head>
+<body>
+    <main id="parallax__cont">
+        <section id="section1" class="parallax__item">
+            <div class="background"><img src="img/project3-intro-bg.png" alt="배경이미지"></div>
+            <div class="overview-text reveal" data-delay="0.2"><img src="img/overview-text.png" alt="설명글"></div>
+        </section>
+        <!-- //section1 -->
+
+        <section id="section2" class="parallax__item">
+           <div class="trendNeeds"><img src="img/3project-trandneeds.png" alt="trend and needs"></div>
+           <div class="percents">
+                <img src="img/sb52.png" alt="52.8%" class="first53 reveal"  data-delay="0.8">
+                <img src="img/sb46.png" alt="46.8%" class="second46 reveal reveal_LTR" data-delay="1.6">
+                <img src="img/sb33.png" alt="33.5%" class="third33 reveal" data-delay="2.0">
+            </div>
+        </section>
+        <!-- //section2 -->
+
+        <section id="section3" class="parallax__item">
+            <div class="arrow"><img src="img/arrow.png" alt="아래방향 화살표"></div>
+            <div class="solution reveal reveal_TTB" data-delay="0.8"><img src="img/solution.png" alt="solution"></div>          
+        </section>
+        <!-- //section3 -->
+
+        <section id="section4" class="parallax__item">
+            <div class="situationAnalysis"><img src="img/situation analysis.png" alt="문제점"></div>
+            <div class="situationSolution reveal reveal_BTT" data-delay="0.5"><img src="img/situation-solution.png" alt="해결방법"></div>
+        </section>
+        <!-- //section4 -->
+
+        <section id="section5" class="parallax__item">
+            <div class="project"><img src="img/project.png" alt="프로젝트골 배경"></div>
+            <div class="goal  reveal reveal_BTT" data-delay="0.8"><img src="img/goal.png" alt="디자인컨셉"></div>
+        </section>
+        <!-- //section5 -->
+
+        <section id="section6" class="parallax__item">
+            <div class="designstory-title"><img src="img/design story title.png" alt="디자인스토리 제목"></div>
+            <div class="designstory-box">
+                <img src="img/box1.png" alt="상세설명1" class="box1 reveal" data-delay="1.0">
+                <img src="img/box2.png" alt="상세설명2" class="box2 reveal" data-delay="1.3">
+                <img src="img/box3.png" alt="상세설명3" class="box3 reveal" data-delay="1.6">
+                <img src="img/box4.png" alt="상세설명4" class="box4 reveal" data-delay="1.8">
+            </div>
+        </section>
+        <!-- //section6 -->
+
+        <section id="section7" class="parallax__item">
+            <div class="userFlow"><img src="img/user flow.png" alt="사용자 이용 동선"></div>
+        </section>
+        <!-- //section7 -->
+
+        <section id="section8" class="parallax__item">
+            <div class="retrospection"><img src="img/retrospection.png" alt="회고배경"></div>
+            <div class="retrospectionQ">
+                <img src="img/firstQ.png" alt="첫번째답변" class="firstA  reveal" data-delay="0.8">
+                <img src="img/secondQ.png" alt="두번째답변" class="secondA  reveal" data-delay="1.2">
+            </div>
+        </section>
+        <!-- //section8 -->
+
+        <section id="section9" class="parallax__item">
+            <div class="mokup"><img src="img/3차목업.png" alt="3차프로젝트 목업 이미지"></div>
+        </section>
+        <!-- //section9 -->
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
+    <script>
+        // 01. 한개 섹션 고정시키기
+        // const panel = document.querySelector("#section5");
+
+        // ScrollTrigger.create({
+        //     trigger: panel,
+        //     start: "top top",
+        //     pin: true,
+        //     pinSpacing: false
+        // });
+
+        // 02. 여러개 섹션 고정시키기
+        // gsap.utils.toArray(".parallax__item").forEach((panel, i) => {
+        //     ScrollTrigger.create({
+        //         trigger: panel,
+        //         start: "top top",
+        //         pin: true,
+        //         pinSpacing: false
+        //     });
+        // });
+
+        // 03. 스냅 고정 효과 만들기
+        let panels = gsap.utils.toArray(".parallax__item");
+        let tops = panels.map(panel => ScrollTrigger.create({trigger: panel, start: "top top"}));
+
+        panels.forEach((panel, i) => {
+            ScrollTrigger.create({
+                trigger: panel,
+                start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
+                pin: true, 
+                pinSpacing: false 
+            });
+        });
+
+        ScrollTrigger.create({
+            snap: {
+                snapTo: (progress, self) => {
+                    let panelStarts = tops.map(st => st.start), 
+                    snapScroll = gsap.utils.snap(panelStarts, self.scroll()); 
+                    return gsap.utils.normalize(0, ScrollTrigger.maxScroll(window), snapScroll); 
+                },
+                duration: 0.5
+            }
+        });
+
+        // 나타내기 효과
+        const hide = (item) => {
+            gsap.set(item, {autoAlpha: 0});
+        }
+
+        const animate = (item) => {
+            let x = 0;
+            let y = 0;
+            let delay = item.dataset.delay;
+
+            if(item.classList.contains("reveal_LTR")){
+                x = -100,
+                y = 0
+            } else if(item.classList.contains("reveal_BTT")){
+                x = 0,
+                y = 100
+            } else if(item.classList.contains("reveal_TTB")){
+                x = 0,
+                y = -100
+            } else {
+                x = 100,
+                y = 0;
+            }
+
+            gsap.fromTo(item, 
+                {autoAlpha: 0, x: x, y: y}, 
+                {autoAlpha: 1, x: 0, y: 0, delay: delay, duration: 1.25, overwrite: "auto", ease: "expo"}
+            );
+        };
+
+        gsap.utils.toArray(".reveal").forEach(item => {
+            hide(item);
+
+            ScrollTrigger.create({
+                trigger: item,
+                start: "top bottom",
+                end: "bottom top",
+                markers: false,
+                onEnter: () => {animate(item)}
+            });
+        });
+    </script>
+</body>
+</html>
