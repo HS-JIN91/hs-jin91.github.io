@@ -1,0 +1,310 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+}
+body {
+    color: #242020;
+    font-family: 'NanumSquare', sans-serif;
+}
+
+#parallax__nav {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.4);
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-align: center;
+}
+#parallax__nav li {
+    list-style: none;
+    display: inline;
+}
+#parallax__nav li a {
+    display: inline-block;
+    width: 55px; 
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+    line-height: 30px;
+    transition: all 0.3s;
+}
+#parallax__nav li a.active {
+    background: #fff;
+    color: #000;
+    border-radius: 30px;
+}
+#parallax__nav.is-active li a {
+    width: 30px; 
+}
+
+/* parallax__cont */
+.parallax__item {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* section1 */
+#section1{
+    background-image: linear-gradient(180deg, #fdfbf3, #FFF7CF);
+    position: relative;
+    /* border-bottom: 1px solid #242020; */
+}
+#section1>h2{
+    font-size: 24px;
+    font-weight: 700;
+    position: absolute;
+    left: 40px;
+    top: 45px;
+}
+.sideTitle{
+    position: absolute;
+    right: 50px;
+    top: 40px;
+}
+.smallNeeds{
+    position: absolute;
+    bottom: 50px;
+    left: 40px;
+}
+
+/* section2 */
+#section2{
+    background-image: linear-gradient(180deg, #FFF7CF, #FFEC8B);
+    position: relative;
+    /* border-bottom: 1px solid #242020; */
+}
+.firstLine{
+    font-weight: 300;
+    font-size: 22px;
+    position: absolute;
+    top: 13%;
+    left: 165px;
+}
+.secondLine{
+    position: absolute;
+    top: 16%;
+    left: 160px;
+    font-size: 50px;
+    font-weight: 300;
+}
+.small{font-size: 30px !important;}
+.bold{font-weight: 700;}
+.profileBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 280px;
+}
+.profilePhoto{
+    width: 30%;
+    height: 60%;
+}
+.profileText{
+    width: 36%;
+    height: 40%;
+    margin-top: 50px;
+}
+
+/* section3 */
+#section3{
+    background-image: linear-gradient(180deg, #FFEC8B, #F2D125);
+    /* border-bottom: 1px solid #242020; */
+}
+.index{
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    justify-content: space-around;
+    gap: 100px;
+}
+.x{
+    width: 30%;
+    height: 30%;
+    margin-top: 62px;
+}
+
+/* section4 */
+#section4{
+    background-color: #F2D125;
+    position: relative;
+}
+.project3Title{
+    position: absolute;
+    top: 6%;
+    left: 60px;
+}
+.project3info{
+    position: absolute;
+    top: 24%;
+    left: 7%;
+}
+.project3imgBg{
+    width: 100%;
+    height: 295px;
+    background-color: #fff;
+    opacity: 0.8;
+    position: absolute;
+    bottom: 7%;
+}
+.project3Logo{
+    position: absolute;
+    top: 31.5%;
+    right: 6.5%;
+    z-index: 100;
+}
+.project3Logo>a{
+    display: block;
+    width: 256px; 
+    height: 128px;
+}
+.project3Logo>a>img{width: 90%;}
+.project3img{
+    position: absolute;
+    bottom: 124px;
+    right: 7%;
+    z-index: 98;
+}
+.kiosk{
+    position: absolute;
+    bottom: -29px;
+    right: 29%;
+    z-index: 99;
+}
+.kiosk>img{width: 88%;}
+.click1{
+    font-weight: 300;
+    font-size: 16px;
+    position: absolute;
+    top: 40%;
+    right: 5%;
+}
+
+/* section5 */
+#section5{
+    background-color: #1A1A1A;
+    position: relative;
+}
+.project2Title{
+    position: absolute;
+    top: 6%;
+    left: 60px;
+}
+.project2info{
+    position: absolute;
+    top: 24%;
+    left: 7%;
+    z-index: 99;
+}
+.project2img{
+    position: absolute;
+    bottom: 0%;
+}
+.project2img>img{
+    width: 100%;
+    opacity: 0.5;
+}
+.project2Logo{
+    position: absolute;
+    top: 35%;
+    right: 6%;
+    z-index: 100;
+}
+.project2Logo>a{
+    display: block;
+    width: 236px; 
+    height: 70px;
+}
+.project2Logo>a>img{width: 78%;}
+.click2{
+    font-weight: 300;
+    font-size: 16px;
+    color: #f4f0f0;
+    position: absolute;
+    top: 39%;
+    right: 6%;
+}
+
+
+/* section6 */
+#section6{
+    background-color: #50C7AF;
+    position: relative;
+}
+.project1Title{
+    position: absolute;
+    top: 6%;
+    left: 60px;
+}
+.project1info{
+    position: absolute;
+    top: 24%;
+    left: 7%;
+    z-index: 99;
+}
+.project1img{
+    position: absolute;
+    bottom: 5%;
+    opacity: 0.8;
+}
+.project1img>img{
+    width: 100%;
+}
+.project1Logo{
+    position: absolute;
+    top: 35%;
+    right: 7%;
+    z-index: 100;
+}
+.project1Logo>a{
+    display: block;
+    width: 236px; 
+    height: 70px;
+}
+.project1Logo>a>img{width: 55%;}
+.click3{
+    font-weight: 300;
+    font-size: 16px;
+    position: absolute;
+    top: 40%;
+    right: 11%;
+}
+
+
+/* section7 */
+#section6{
+    position: relative;
+}
+.thanksTo{
+    position: absolute;
+    top: 1%;
+}
+.contact{
+    position: absolute;
+    bottom: 7%;
+    right: 4%;
+}
+
+/* option */
+#parallax__cont {
+    overflow: hidden;
+}
+#horizontal {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 300%;
+}
+#horizontal > section {
+    width: 100%;
+}
